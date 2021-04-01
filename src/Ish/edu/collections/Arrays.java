@@ -67,4 +67,7 @@ public class Arrays {
         System.out.println(duration);
 
     }
+
+    public static Object asList(int i, int i1, int i2, int i3, int i4) {
+    }
 }

@@ -206,8 +206,7 @@ public class Collections {
         start = LocalDateTime.now();
 
         for (int i = 0; i < 1000; i++) {
-            listInt.remove(0);
-            listInt.add(0, i);
+            listInt.set(i, i);
         }
 
         finish = LocalDateTime.now();
@@ -221,8 +220,7 @@ public class Collections {
         start = LocalDateTime.now();
 
         for (int i = 0; i < 1000; i++) {
-            linkedList.remove(i);
-            linkedList.add(i, i);
+            linkedList.set(i, i);
         }
 
         finish = LocalDateTime.now();
@@ -239,9 +237,9 @@ public class Collections {
 
 
 
-        // THE Array List - listInt DURATION OF UPDATE FROM BEGINNING IS 290
-        // THE linkedList DURATION OF UPDATE FROM BEGINNING IS 10
-        // LinkedList update from beginning is faster
+        // THE Array List - listInt DURATION OF UPDATE FROM BEGINNING IS 7
+        // THE linkedList DURATION OF UPDATE FROM BEGINNING IS 182
+        // ArrayList update from beginning is faster
         // MAYBE THATS BECAUSE OF MY OLD LAPTOP
 
         // UPDATE FROM END
@@ -250,8 +248,7 @@ public class Collections {
         start = LocalDateTime.now();
         int listIntEndIndex = listInt.size() - 1000;;
         for (int i = 0; i < 1000; i++) {
-            listInt.remove(listIntEndIndex);
-            listInt.add(listIntEndIndex, i);
+            listInt.set(listIntEndIndex, i);
             listIntEndIndex++;
         }
 
@@ -267,8 +264,7 @@ public class Collections {
         start = LocalDateTime.now();
         int linkedListEndIndex = linkedList.size() - 1000;;
         for (int i = 0; i < 1000; i++) {
-            linkedList.remove(linkedListEndIndex);
-            linkedList.add(linkedListEndIndex, i);
+            linkedList.set(linkedListEndIndex, i);
             linkedListEndIndex++;
         }
 
@@ -292,12 +288,11 @@ public class Collections {
 
         // UPDATE FROM MIDDLE
         // FOR ArrayList - listInt
-        listIntMiddleIndex = listInt.size()/2;
+        listIntMiddleIndex = listInt.size()/2 - 500;
         start = LocalDateTime.now();
 
         for (int i = 0; i < 1000; i++) {
-            listInt.remove(listIntMiddleIndex);
-            listInt.add(listIntMiddleIndex, i);
+            listInt.set(listIntMiddleIndex, i);
             listIntMiddleIndex++;
         }
 
@@ -309,12 +304,11 @@ public class Collections {
 
 
         // FOR linkedList
-        linkedListMiddleIndex = linkedList.size()/2;
+        linkedListMiddleIndex = linkedList.size()/2 - 500;
         start = LocalDateTime.now();
 
         for (int i = 0; i < 1000; i++) {
-            linkedList.remove(linkedListMiddleIndex);
-            linkedList.add(linkedListMiddleIndex, i);
+            linkedList.set(linkedListMiddleIndex, i);
             linkedListMiddleIndex++;
         }
 
