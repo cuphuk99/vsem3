@@ -17,7 +17,7 @@ import java.util.stream.Stream;
  * @since 29.03.2021 - 19.27
  */
 
-public class Arrays {
+public class ArraysTest {
     public static void main(String[] args) {
 
         Random random = new Random();
@@ -68,6 +68,4 @@ public class Arrays {
 
     }
 
-    public static Object asList(int i, int i1, int i2, int i3, int i4) {
-    }
 }
