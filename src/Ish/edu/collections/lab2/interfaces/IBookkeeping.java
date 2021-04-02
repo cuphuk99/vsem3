@@ -1,5 +1,7 @@
 package Ish.edu.collections.lab2.interfaces;
 
+import Ish.edu.collections.lab2.TypeOfPacking;
+
 /**
  * @author Ishtukin Vlad
  * @version 1.0.0

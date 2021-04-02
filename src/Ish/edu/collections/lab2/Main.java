@@ -1,8 +1,6 @@
 package Ish.edu.collections.lab2;
 
-import Ish.edu.collections.ArraysTest;
 import Ish.edu.collections.lab2.interfaces.IBookkeeping;
-import Ish.edu.collections.lab2.interfaces.TypeOfPacking;
 
 import java.util.ArrayList;
 import java.util.Comparator;
