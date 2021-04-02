@@ -70,5 +70,20 @@ public class Main {
         System.out.println("------------------------------------");
         System.out.println("So the most profitable type of selling is " + bestType);
 
+        /*
+        Total income profit is 107275.05
+        ------------------------------------
+        Average profit is 10727.505000000001
+        ------------------------------------
+        The most profitable good is SugarPacked{name=WhiteSugar, quantity=250.0, price=13.99, priceWholesale=11.5, delivery=true, amount=21, type=Packed}
+        ------------------------------------
+        The less profitable good is SugarOnWeight{name=WhiteSugar, weight=5.0, priceOfPacking=0.8, price=15.0, priceWholesale=12.0, delivery=true, amount=6, type=OnWeight}
+        ------------------------------------
+        The total profit from packed sugar is 97999.8
+        ------------------------------------
+        The total profit from on weigh sugar is 9275.25
+        ------------------------------------
+        So the most profitable type of selling is packed sugar.
+        */
     }
 }
