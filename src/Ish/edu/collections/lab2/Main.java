@@ -67,6 +67,27 @@ public class Main {
         System.out.println("The total profit from on weigh sugar is " + totalIncomeOnWeight);
         System.out.println("------------------------------------");
         System.out.println("So the most profitable type of selling is " + bestType);
+        /*
+        EXAMPLE
+
+        A company contains two types of employees:  full-time and  part-time ones.
+        1. Create two appropriate classes and 5 objects of each one.
+        2. Calculate   the total salary of a month.
+        3. Find the highest salary employee.
+        4. Find he lowest salary employee
+        5.  The average salary.
+        6. Who get more salary, part-time or full-time employees?
+
+        But I have changed it for my own task so the subtasks is:
+
+        1. Create two appropriate classes and 5 objects of each one.
+        2. Calculate  the total profit of a month.
+        3. Find the most profitable product.
+        4. Find the most profitable product.
+        5. The average profit for month.
+        6. Which type of selling (packed sugar or on weight) is more profitable?
+        ---------------------------------------------------------------------------
+        */
 
         /*
         Total income profit is 107275.05
