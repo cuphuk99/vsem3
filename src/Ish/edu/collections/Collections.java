@@ -113,7 +113,7 @@ public class Collections {
         start = LocalDateTime.now();
 
         for (int i = 0; i < 1000; i++) {
-            listInt.add(random.nextInt(1000));
+            listInt.add(listInt.size()-1, random.nextInt(1000));
         }
 
         finish = LocalDateTime.now();
@@ -128,7 +128,7 @@ public class Collections {
         start = LocalDateTime.now();
 
         for (int i = 0; i < 1000; i++) {
-            linkedList.add(random.nextInt(1000));
+            linkedList.add(linkedList.size()-1,random.nextInt(1000));
         }
 
         finish = LocalDateTime.now();
@@ -246,12 +246,9 @@ public class Collections {
         // FOR ArrayList - listInt
 
         start = LocalDateTime.now();
-        int listIntEndIndex = listInt.size() - 1000;;
         for (int i = 0; i < 1000; i++) {
-            listInt.set(listIntEndIndex, i);
-            listIntEndIndex++;
+            listInt.set(listInt.size() - 1, i);
         }
-
         finish = LocalDateTime.now();
         duration = (int) ChronoUnit.MILLIS.between(start, finish);
 
@@ -262,16 +259,14 @@ public class Collections {
         // FOR linkedList
 
         start = LocalDateTime.now();
-        int linkedListEndIndex = linkedList.size() - 1000;;
         for (int i = 0; i < 1000; i++) {
-            linkedList.set(linkedListEndIndex, i);
-            linkedListEndIndex++;
+            linkedList.set(linkedList.size() - 1, i);
         }
-
         finish = LocalDateTime.now();
         durationLinked = (int) ChronoUnit.MILLIS.between(start, finish);
         System.out.println("duration of LinkedList update from end is " + durationLinked);
         System.out.println("---------------------------------------------------");
+
         if (durationLinked > duration){
             System.out.println("ArrayList update from end is faster");
         } else {
