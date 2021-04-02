@@ -11,4 +11,5 @@ package Ish.edu.collections.lab2.interfaces;
 public interface IBookkeeping {
     double getPriceOfOrder();
     double getDeliveryPrice();
+    TypeOfPacking getTypeOfPacking();
 }

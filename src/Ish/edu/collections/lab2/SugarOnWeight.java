@@ -1,6 +1,7 @@
 package Ish.edu.collections.lab2;
 
 import Ish.edu.collections.lab2.interfaces.IBookkeeping;
+import Ish.edu.collections.lab2.interfaces.TypeOfPacking;
 
 /**
  * @author Ishtukin Vlad
@@ -12,28 +13,21 @@ import Ish.edu.collections.lab2.interfaces.IBookkeeping;
 
 public class SugarOnWeight implements IBookkeeping {
     //private String name;
-    private Name name;
+    private String name;
     private double weight;
     private double priceOfPacking;
     private double price;           // per 1 kg of sugar
     private double priceWholesale;  // price per 1kg of sugar but for the orders more than 10kg
     private boolean delivery;       //does client include the delivery to the order
     private int amount;             // the amount of all orders by this position
+    private TypeOfPacking type;
 
     public SugarOnWeight() {
     }
 
 
-    public SugarOnWeight(Name name, double weight, double priceOfPacking, double price, double priceWholesale, int amount) {
-        this.name = name;
-        this.weight = weight;
-        this.priceOfPacking = priceOfPacking;
-        this.price = price;
-        this.priceWholesale = priceWholesale;
-        this.amount = amount;
-    }
 
-    public SugarOnWeight(Name name, double weight, double priceOfPacking, double price, double priceWholesale, boolean delivery, int amount) {
+    public SugarOnWeight(String name, double weight, double priceOfPacking, double price, double priceWholesale, boolean delivery, int amount) {
         this.name = name;
         this.weight = weight;
         this.priceOfPacking = priceOfPacking;
@@ -43,12 +37,22 @@ public class SugarOnWeight implements IBookkeeping {
         this.amount = amount;
     }
 
+    public SugarOnWeight(String name, double weight, double priceOfPacking, double price, double priceWholesale, boolean delivery, int amount, TypeOfPacking type) {
+        this.name = name;
+        this.weight = weight;
+        this.priceOfPacking = priceOfPacking;
+        this.price = price;
+        this.priceWholesale = priceWholesale;
+        this.delivery = delivery;
+        this.amount = amount;
+        this.type = type;
+    }
 
-    public Name getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Name name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -100,15 +104,25 @@ public class SugarOnWeight implements IBookkeeping {
         this.amount = amount;
     }
 
+    public TypeOfPacking getType() {
+        return type;
+    }
+
+    public void setType(TypeOfPacking type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "SugarOnWeight{" +
-                "name='" + name + '\'' +
+                "name=" + name +
                 ", weight=" + weight +
                 ", priceOfPacking=" + priceOfPacking +
                 ", price=" + price +
                 ", priceWholesale=" + priceWholesale +
+                ", delivery=" + delivery +
                 ", amount=" + amount +
+                ", type=" + type +
                 '}';
     }
 
@@ -134,5 +148,10 @@ public class SugarOnWeight implements IBookkeeping {
             delivelyPrice = 0;
         }
         return delivelyPrice;
+    }
+
+    @Override
+    public TypeOfPacking getTypeOfPacking() {
+       return  this.getType();
     }
 }
