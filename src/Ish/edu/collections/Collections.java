@@ -527,9 +527,9 @@ public class Collections {
         //    Linked list is better and faster
         //
         // Linked list is better in creation, in Insertion from the head,
-        // and in Removing from Head and Middle.
+        // and in Removing from Head
 
-        // Array list is better in Insertion from Middle, in Updation from Head and Middle,
+        // Array list is better in Insertion from Middle, Update from Head and Middle,
         // and in Removing from Tail
 
         // Both lists are same good in Insertion from Tail, Update from tail,
