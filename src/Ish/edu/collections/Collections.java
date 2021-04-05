@@ -483,12 +483,16 @@ public class Collections {
 
         // ------------------- HEAD ------------------------------
         //    Array List 242 ms ---------------- Linked list 5 ms
+        //    Linked list is better
 
         // ------------------- MIDDLE ------------------------------
         //    Array List 67 ms ---------------- Linked list 889 ms
+        //    Array list is MUCH better and faster
 
         // ------------------- TAIL ------------------------------
         //    Array List 1 ms ---------------- Linked list 3 ms
+        //    Both lists are same good
+
 
 
 
@@ -496,12 +500,15 @@ public class Collections {
 
         // ------------------- HEAD ------------------------------
         //    Array List 7 ms ---------------- Linked list 182 ms
+        //    Array list is faster
 
         // ------------------- MIDDLE ------------------------------
         //    Array List 105 ms ---------------- Linked list 1021 ms
+        //    Array list is 10 times faster
 
         // ------------------- TAIL ------------------------------
         //    Array List 2 ms ---------------- Linked list 29 ms
+        //    Both lists are almost the same
 
 
 
@@ -509,13 +516,24 @@ public class Collections {
 
         // ------------------- HEAD ------------------------------
         //    Array List 118 ms ---------------- Linked list 1 ms
+        //    Linked list is better
 
         // ------------------- MIDDLE ------------------------------
         //    Array List 2 ms ---------------- Linked list 1 ms
+        //    Both list are same good
 
         // ------------------- TAIL ------------------------------
         //    Array List 52 ms ---------------- Linked list 527 ms
+        //    Linked list is better and faster
         //
+        // Linked list is better in creation, in Insertion from the head,
+        // and in Removing from Head and Middle.
+
+        // Array list is better in Insertion from Middle, in Updation from Head and Middle,
+        // and in Removing from Tail
+
+        // Both lists are same good in Insertion from Tail, Update from tail,
+        // and Remove from Middle
 
     }
 }
