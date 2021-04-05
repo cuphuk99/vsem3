@@ -13,5 +13,5 @@ import Ish.edu.collections.lab2.TypeOfPacking;
 public interface IBookkeeping {
     double getPriceOfOrder();
     double getDeliveryPrice();
-    TypeOfPacking getTypeOfPacking();
+
 }

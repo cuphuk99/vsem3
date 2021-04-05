@@ -22,16 +22,16 @@ public class Main {
     public static void main(String[] args) {
         List<IBookkeeping> list = new ArrayList<>(
                 Arrays.asList(
-                        new SugarOnWeight("WhiteSugar", 5.00, 0.80, 15, 12, true, 6, TypeOfPacking.OnWeight),
-                        new SugarOnWeight("BrownSugar", 55.00, 1.5, 29.99, 20, true, 1, TypeOfPacking.OnWeight),
-                        new SugarOnWeight("CaneSugar", 9.50, 2.50, 110.15, 99.99, false, 4, TypeOfPacking.OnWeight),
-                        new SugarOnWeight("CoconutSugar", 11.00, 5.5, 205.89, 12, true, 10, TypeOfPacking.OnWeight),
-                        new SugarOnWeight("VanillaSugar", 7.50, 1.00, 18.90, 12, false, 15, TypeOfPacking.OnWeight),
-                        new SugarPacked ("LumpSugar", 20, 19.99, 15.99, false, 3, TypeOfPacking.Packed),
-                        new SugarPacked ("WhiteSugar", 250, 13.99, 11.50, true, 21, TypeOfPacking.Packed),
-                        new SugarPacked ("SweetFamily", 57, 24.99, 21.50, true, 10, TypeOfPacking.Packed),
-                        new SugarPacked ("Hutorok", 40, 20.00, 18.25, false, 15, TypeOfPacking.Packed),
-                        new SugarPacked ("CoconutSugar", 90, 17.25, 14.99, false, 9, TypeOfPacking.Packed)
+                        new SugarOnWeight("WhiteSugar", 5.00, 0.80, 15, 12, true, 6),
+                        new SugarOnWeight("BrownSugar", 55.00, 1.5, 29.99, 20, true, 1),
+                        new SugarOnWeight("CaneSugar", 9.50, 2.50, 110.15, 99.99, false, 4),
+                        new SugarOnWeight("CoconutSugar", 11.00, 5.5, 205.89, 12, true, 10),
+                        new SugarOnWeight("VanillaSugar", 7.50, 1.00, 18.90, 12, false, 15),
+                        new SugarPacked ("LumpSugar", 20, 19.99, 15.99, false, 3),
+                        new SugarPacked ("WhiteSugar", 250, 13.99, 11.50, true, 21),
+                        new SugarPacked ("SweetFamily", 57, 24.99, 21.50, true, 10),
+                        new SugarPacked ("Hutorok", 40, 20.00, 18.25, false, 15),
+                        new SugarPacked ("CoconutSugar", 90, 17.25, 14.99, false, 9)
 
                 )
         );
@@ -40,13 +40,12 @@ public class Main {
         IBookkeeping cheapest   = list.stream().min(Comparator.comparing(IBookkeeping::getPriceOfOrder)).get();
         double avg = list.stream().mapToDouble(IBookkeeping::getPriceOfOrder).average().getAsDouble();
 
-        List<IBookkeeping>  sugarPacked = list.stream().filter(item -> item.getTypeOfPacking() == TypeOfPacking.Packed)
-                                .collect(Collectors.toList());
-        List<IBookkeeping>  sugarOnWeight = list.stream().filter(item -> item.getTypeOfPacking() == TypeOfPacking.OnWeight)
-                                .collect(Collectors.toList());
+        double totalIncomePacked = list.stream().filter(el -> el instanceof SugarPacked)
+                .mapToDouble(IBookkeeping::getPriceOfOrder).sum();
 
-        double totalIncomePacked = sugarPacked.stream().mapToDouble(IBookkeeping::getPriceOfOrder).sum();
-        double totalIncomeOnWeight = sugarOnWeight.stream().mapToDouble(IBookkeeping::getPriceOfOrder).sum();
+        double totalIncomeOnWeight = list.stream().filter(el -> el instanceof SugarOnWeight)
+                .mapToDouble(IBookkeeping::getPriceOfOrder).sum();
+
         String bestType = "";
         if (totalIncomePacked > totalIncomeOnWeight){
             bestType = "packed sugar.";
@@ -59,14 +58,18 @@ public class Main {
         System.out.println("Average profit is " + avg);
         System.out.println("------------------------------------");
         System.out.println("The most profitable good is " + expensive);
+        System.out.println("It brings the " + expensive.getPriceOfOrder() + " UAH.");
         System.out.println("------------------------------------");
         System.out.println("The less profitable good is " + cheapest);
+        System.out.println("It brings the " + cheapest.getPriceOfOrder() + " UAH.");
         System.out.println("------------------------------------");
         System.out.println("The total profit from packed sugar is " + totalIncomePacked);
         System.out.println("------------------------------------");
         System.out.println("The total profit from on weigh sugar is " + totalIncomeOnWeight);
         System.out.println("------------------------------------");
         System.out.println("So the most profitable type of selling is " + bestType);
+
+
         /*
         EXAMPLE
 
@@ -92,11 +95,13 @@ public class Main {
         /*
         Total income profit is 107275.05
         ------------------------------------
-        Average profit is 10727.505000000001
+        Average profit is 10727.50
         ------------------------------------
         The most profitable good is SugarPacked{name=WhiteSugar, quantity=250.0, price=13.99, priceWholesale=11.5, delivery=true, amount=21, type=Packed}
+        It brings the 60375.0 UAH.
         ------------------------------------
         The less profitable good is SugarOnWeight{name=WhiteSugar, weight=5.0, priceOfPacking=0.8, price=15.0, priceWholesale=12.0, delivery=true, amount=6, type=OnWeight}
+        The less profitable good is 456.30 UAH.
         ------------------------------------
         The total profit from packed sugar is 97999.8
         ------------------------------------

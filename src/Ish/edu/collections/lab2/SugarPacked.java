@@ -130,9 +130,5 @@ public class SugarPacked implements IBookkeeping {
         return delivelyPrice;
     }
 
-    @Override
-    public TypeOfPacking getTypeOfPacking() {
-        return this.getType();
 
-    }
 }
