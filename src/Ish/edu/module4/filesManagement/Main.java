@@ -17,19 +17,21 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         System.out.println("The amount of all logs is " +
-                LogsService.logsAmount("D:\\BestBrain\\Java kurs\\logs2019.log") +"\n");
+                LogsService.logsAmount("D:\\BestBrain\\Java kurs\\logs.txt") +"\n");
 
         int errorsAmount = 0;
 
         LocalDateTime startByFiles = LocalDateTime.now();
-        errorsAmount = LogsService.errorsAmountByLines("D:\\BestBrain\\Java kurs\\logs2019.log");
+
+        errorsAmount = LogsService.errorsAmountByLines("D:\\BestBrain\\Java kurs\\logs.txt");
         LocalDateTime finishByFiles = LocalDateTime.now();
         System.out.println("Time of Files.lines work is " + ChronoUnit.MILLIS.between(startByFiles, finishByFiles) + "ms");
         System.out.println("Amount errors by Files method is " + errorsAmount +"\n");
 
 
         LocalDateTime startBySplit = LocalDateTime.now();
-        errorsAmount = LogsService.errorsAmountBySplit("D:\\BestBrain\\Java kurs\\logs2019.log");
+        errorsAmount = LogsService.errorsAmountByLines("D:\\BestBrain\\Java kurs\\logs.txt");
+
         LocalDateTime finishBySplit = LocalDateTime.now();
         System.out.println("Time of Split method work is " + ChronoUnit.MILLIS.between(startBySplit, finishBySplit) + "ms");
         System.out.println("Amount errors by Files method is " + errorsAmount + "\n");
@@ -43,17 +45,16 @@ public class Main {
 
         /*
 
-        I use the logs2019.log file cause the "out of memory" error
 
         -------------------------The OUTPUT------------------------------------
 
-        The amount of all logs is 433387
+        The amount of all logs is 2845607
 
-        Time of Files.lines work is 1486ms
-        Amount errors by Files method is 105
+        Time of Files.lines work is 13051ms
+        Amount errors by Files method is 361
 
-        Time of Split method work is 1905ms
-        Amount errors by Files method is 105
+        Time of Split method work is 15590ms
+        Amount errors by Files method is 361
 
         The Files.lines method is faster
         */
