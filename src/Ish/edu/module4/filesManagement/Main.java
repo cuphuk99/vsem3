@@ -34,7 +34,7 @@ public class Main {
 
         LocalDateTime finishBySplit = LocalDateTime.now();
         System.out.println("Time of Split method work is " + ChronoUnit.MILLIS.between(startBySplit, finishBySplit) + "ms");
-        System.out.println("Amount errors by Files method is " + errorsAmount + "\n");
+        System.out.println("Amount errors by Split method is " + errorsAmount + "\n");
 
         if (ChronoUnit.MILLIS.between(startBySplit, finishBySplit) <
                 ChronoUnit.MILLIS.between(startByFiles, finishByFiles)) {
@@ -54,7 +54,7 @@ public class Main {
         Amount errors by Files method is 361
 
         Time of Split method work is 15590ms
-        Amount errors by Files method is 361
+        Amount errors by Split method is 361
 
         The Files.lines method is faster
         */
