@@ -37,7 +37,9 @@ public class Main {
 
         /*
         ----------------------- OUTPUT -----------------------
-
+        I did not ouput the amount of logs per day because
+        1) this is another time which I don't want to sum with the time of File.write process
+        2) this is not one of the tasks (but the method exist in the LogsService file)
 
         --------------- Consistent way ---------------------
         Consistent way done in 9648ms
