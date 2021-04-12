@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  */
 
 public class LogsService {
-    private String file;
+    private final String file = "D:\\BestBrain\\Java kurs\\logs.txt";
 
     public LogsService() {
     }
@@ -26,30 +26,35 @@ public class LogsService {
         return file;
     }
 
-    public void setFile(String file) {
-        this.file = file;
-    }
-
     public static List<String> logsByDate(String file, LocalDate date) throws IOException {
         String dateAsString = date.toString();
+
         List<String> list = Files.lines(Paths.get(file))
                 .filter(log -> log.contains(dateAsString))
                 .collect(Collectors.toList());
 
         return list;
     }
-    public static void logsByDateToFile(String file, LocalDate date) throws IOException {
-        String dateAsString = date.toString();
-        List<String> list = Files.lines(Paths.get(file))
-                .filter(log -> log.contains(dateAsString))
-                .collect(Collectors.toList());
-        String str = "";
 
-        for(String log: list){
-            str +=  log + System.lineSeparator() ;
-        }
+    public static void getLogsCountByDate(LocalDate date) throws IOException {
+        String dateAsString = date.toString();
+        String file = "D:\\BestBrain\\Java kurs\\logs.txt";
+        System.out.println(date + " - " + Files.lines(Paths.get(file))
+                .filter(log -> log.contains(dateAsString)).count() + " logs per day");
+    }
+
+    public static void errorLogsByDateToFile(LocalDate date) throws IOException {
+        String dateAsString = date.toString();
+        String str = "";
+        String file = "D:\\BestBrain\\Java kurs\\logs.txt";
+        StringBuilder sb = new StringBuilder(str);
+        Files.lines(Paths.get(file))
+                .filter(log -> log.contains(dateAsString))
+                .filter(log -> log.contains("ERROR"))
+                .forEach(log -> sb.append(log + "\n"));
+
 
         String output = "D:\\BestBrain\\Java kurs\\" + "ERROR" + dateAsString + ".log";
-        Files.write(Paths.get(output), str.getBytes(StandardCharsets.UTF_8));
+        Files.write(Paths.get(output), sb.toString().getBytes(StandardCharsets.UTF_8));
     }
 }
